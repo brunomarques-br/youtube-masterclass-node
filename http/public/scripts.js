@@ -2,6 +2,16 @@ const ul = document.querySelector("ul")
 const input = document.querySelector("input")
 const form = document.querySelector('form')
 
+async function load() {
+
+    const res = await fetch("http://localhost:3000/")
+        .then((data) => data.json());
+
+    // Interação sobre cada elemento do 'res' utilizando o 'map'
+    res.urls.map(({ name, url }) => addElement({ name, url }));
+}
+
+load();
 
 function addElement({ name, url }) {
     const li = document.createElement('li')
@@ -22,7 +32,8 @@ function addElement({ name, url }) {
 
 function removeElement(el) {
     if (confirm('Tem certeza que deseja deletar?'))
-        el.parentNode.remove()
+        console.log(deleteApi(el));
+    //el.parentNode.remove()
 }
 
 form.addEventListener("submit", (event) => {

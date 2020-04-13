@@ -24,21 +24,4 @@ http.createServer((req, res) => {
         }
     )
 
-    /** if (req.url === '/') { 
-        fs.readFile(
-            path.join(__dirname, 'public', 'index.html'),
-            (err,content) => {
-                if (err) throw err;
-
-                res.end(content);
-            }
-        )     
-        return res.end('<h1>HomePage</h1>'); 
-    }
-
-    if (req.url === '/contact')
-        return res.end('<h1>ContactPage</h1>');
-
-    */
-
 }).listen(5000, () => console.log('Server is running...'));
